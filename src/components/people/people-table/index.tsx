@@ -24,12 +24,12 @@ export interface OuterFilters {
   search: string;
 }
 
-const headers: Pick<
+type TableHeaders = Pick<
   Person,
   'name' | 'skin_color' | 'height' | 'mass' | 'birth_year'
-> & {
-  id: string;
-} = {
+> & { id: string };
+
+const headers: Record<keyof TableHeaders, string> = {
   id: 'Id',
   name: 'Name',
   skin_color: 'Color of skin',
@@ -67,10 +67,10 @@ export const PeopleTable = (): JSX.Element => {
         optimisticData: true,
       });
     },
-    [mutate, router]
+    [mutate, router],
   );
 
-  const ordersTableUI = useMemo(
+  const peopleTableUi = useMemo(
     () =>
       people.map((person) => ({
         id: getUniqueIdFromUrl(person.url),
@@ -89,7 +89,7 @@ export const PeopleTable = (): JSX.Element => {
         mass: person.mass ?? 'empty',
         birth_year: person.birth_year ?? 'empty',
       })),
-    [handleOpenPerson, people]
+    [handleOpenPerson, people],
   );
 
   return (
@@ -105,7 +105,7 @@ export const PeopleTable = (): JSX.Element => {
       />
 
       <Table
-        data={ordersTableUI}
+        data={peopleTableUi}
         headers={formattedHeaders}
         itemsAmount={peopleAmount}
         pagination={pagination}

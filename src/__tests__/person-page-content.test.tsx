@@ -67,7 +67,7 @@ describe('Person page component', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('resetFrom should call mutate if person exists', () => {
+  it('resetFrom should call resetPersonForm if person exists', () => {
     expect(mockData.testCb).toBeCalledWith(mockData.person);
   });
 });

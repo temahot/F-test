@@ -39,7 +39,7 @@ export default function usePerson({ id }: UsePersonProps): UsePersonReturn {
     {
       revalidateOnFocus: false,
       revalidateOnMount: false,
-    }
+    },
   );
 
   return useMemo(
@@ -47,6 +47,6 @@ export default function usePerson({ id }: UsePersonProps): UsePersonReturn {
       personIsLoading: isLoading,
       person: data,
     }),
-    [data, isLoading]
+    [data, isLoading],
   );
 }

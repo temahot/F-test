@@ -6,9 +6,9 @@ import useNetwork from '~/hooks/common/useNetwork';
 import { usePagination, type UsePaginationProps } from '~/hooks/usePagination';
 import { ROUTES } from '~/routes';
 
-type UseOrdersProps = Pick<UsePaginationProps, 'outerFilters'>;
+type UsePeopleProps = Pick<UsePaginationProps, 'outerFilters'>;
 
-export default function usePeople({ outerFilters }: UseOrdersProps) {
+export default function usePeople({ outerFilters }: UsePeopleProps) {
   const { api } = useNetwork();
   const { path, pagination } = usePagination({
     route: ROUTES.PEOPLE,

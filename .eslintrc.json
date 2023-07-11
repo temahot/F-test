@@ -7,8 +7,7 @@
         "next",
         "next/core-web-vitals",
         "prettier",
-        "plugin:react/recommended",
-        "standard-with-typescript"
+        "plugin:react/recommended"
     ],
     "overrides": [
     ],
@@ -26,21 +25,14 @@
         "no-console": "warn",
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/prefer-ts-expect-error": "off",
-        "@typescript-eslint/no-explicit-any": "warn",
-        "@typescript-eslint/explicit-function-return-type": "off", // bad rule-off, turned off to save us time
+        "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/consistent-type-definitions": "off",
-        "@typescript-eslint/indent": "off", // bad rule-off, might have to fix later
-        "@typescript-eslint/restrict-plus-operands": "warn",
+        "@typescript-eslint/indent": "off",
         "@typescript-eslint/member-delimiter-style": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/semi": "off",
         "@typescript-eslint/comma-dangle": "off",
         "@typescript-eslint/space-before-function-paren": "off",
-        "@typescript-eslint/no-misused-promises": [2, {
-            "checksVoidReturn": {
-                "attributes": false // we need it to handle useless warnings in react onClick attributes
-            }
-        }],
         "react/react-in-jsx-scope": "off",
         "react/jsx-filename-extension": [
             1,

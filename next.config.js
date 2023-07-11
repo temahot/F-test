@@ -19,7 +19,7 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['localhost', 'picsum.photos'],
+    domains: ['localhost'],
   },
 };
 

@@ -42,7 +42,7 @@ export default function PersonPageContent({ personId }: { personId: number }) {
     const peopleCache = cache.get(revalidatePath);
     if (peopleCache) {
       const foundPersonIndex = peopleCache.data.results.findIndex(
-        (item: Person) => item.url === person.url
+        (item: Person) => item.url === person.url,
       );
       peopleCache.data.results[foundPersonIndex] = newPerson;
       notify('success', 'Saved');

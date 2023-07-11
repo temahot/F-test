@@ -28,14 +28,14 @@ export default function usePersonValidation() {
     eye_color: '',
     gender: '',
     hair_color: '',
-    height: '',
+    height: 0,
     homeworld: '',
-    mass: '',
+    mass: 0,
     name: '',
     skin_color: '',
   };
 
-  const form = useForm<Person>({
+  const form = useForm({
     defaultValues,
     mode: 'all',
     resolver: yupResolver(validation),
@@ -47,7 +47,7 @@ export default function usePersonValidation() {
         keepDefaultValues: true,
       });
     },
-    [form]
+    [form],
   );
 
   return {

@@ -51,7 +51,7 @@ export const TableBody = ({
         ))}
         <TableRow>
           <TableCell>
-            <Typography variant="body1">ㅤ</Typography>
+            <Typography variant="body2">ㅤ</Typography>
           </TableCell>
         </TableRow>
       </MuiTableBody>
