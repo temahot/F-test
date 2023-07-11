@@ -1,0 +1,64 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "next",
+        "next/core-web-vitals",
+        "prettier",
+        "plugin:react/recommended",
+        "standard-with-typescript"
+    ],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "simple-import-sort",
+        "unused-imports"
+    ],
+    "rules": {
+        "no-console": "warn",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/prefer-ts-expect-error": "off",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/explicit-function-return-type": "off", // bad rule-off, turned off to save us time
+        "@typescript-eslint/consistent-type-definitions": "off",
+        "@typescript-eslint/indent": "off", // bad rule-off, might have to fix later
+        "@typescript-eslint/restrict-plus-operands": "warn",
+        "@typescript-eslint/member-delimiter-style": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/no-misused-promises": [2, {
+            "checksVoidReturn": {
+                "attributes": false // we need it to handle useless warnings in react onClick attributes
+            }
+        }],
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        ],
+        "simple-import-sort/imports": ["error", {
+            "groups": [
+                ["^react"],
+                ["^antd"],
+                ["^@?\\w"],
+                ["~/(.*)"],
+                ["^[./]"]
+            ]
+        }],
+        "multiline-ternary": "off",
+        "unused-imports/no-unused-imports": "error",
+        "react/self-closing-comp": "error"
+    }
+}
