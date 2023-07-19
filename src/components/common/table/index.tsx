@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import {
   Paper,
@@ -18,7 +18,7 @@ export const Table = ({
   pagination,
   itemsAmount,
   isLoading,
-}: TableProps): JSX.Element => {
+}: TableProps): ReactElement => {
   return (
     <TableContainer component={Paper}>
       <MuiTable>

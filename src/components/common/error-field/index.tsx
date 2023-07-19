@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { type FieldError } from 'react-hook-form';
 
 import { Typography } from '@mui/material';
@@ -7,7 +7,7 @@ interface ErrorFieldProps {
   message: FieldError['message'];
 }
 
-export const ErrorField = ({ message }: ErrorFieldProps): JSX.Element => (
+export const ErrorField = ({ message }: ErrorFieldProps): ReactElement => (
   <Typography
     color={'error'}
     variant={'subtitle2'}

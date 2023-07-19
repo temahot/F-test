@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { type Path, useController } from 'react-hook-form';
 import {
   type FieldValues,
@@ -24,7 +24,7 @@ export const TextInput = <T extends FieldValues>({
   isNumber,
   isLoading,
   ...restProps
-}: TextInputProps<T>): JSX.Element => {
+}: TextInputProps<T>): ReactElement => {
   const { field } = useController({
     name,
     control: form.control,

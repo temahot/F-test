@@ -1,4 +1,4 @@
-import React, { type PropsWithChildren } from 'react';
+import React, { type PropsWithChildren, ReactElement } from 'react';
 
 import {
   Skeleton,
@@ -19,7 +19,7 @@ export const TableBody = ({
   isLoading,
   headers,
   children,
-}: TableBodyProps): JSX.Element => {
+}: TableBodyProps): ReactElement => {
   const FAKE_TABLE_ROWS = 10;
 
   const beautifyRow = (row: TableRowProps) => {

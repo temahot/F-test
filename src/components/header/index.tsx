@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { AppBar, Typography } from '@mui/material';
 import * as process from 'process';
@@ -23,7 +23,7 @@ const typographyStyles = {
   textTransform: 'uppercase',
 };
 
-export const Header = (): JSX.Element => {
+export const Header = (): ReactElement => {
   return (
     <AppBar sx={appBarStyles}>
       <Typography variant="h4" noWrap component="div" sx={typographyStyles}>

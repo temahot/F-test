@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { ReactElement, useCallback, useMemo, useState } from 'react';
 
 import { styled } from '@mui/material';
 import Typography from '@mui/material/Typography';
@@ -40,7 +40,7 @@ const headers: Record<keyof TableHeaders, string> = {
 
 export const formattedHeaders = Object.values(headers);
 
-export const PeopleTable = (): JSX.Element => {
+export const PeopleTable = (): ReactElement => {
   const initialFilters = {
     search: '',
   };
