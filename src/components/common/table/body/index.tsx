@@ -27,7 +27,7 @@ export const TableBody = ({
     return (
       <TableRow key={key} hover>
         {Object.values(row).map((rowValue, i) => (
-          <TableCell key={rowValue + i} align={'center'}>
+          <TableCell key={rowValue + i} align={'center'} sx={{ maxWidth: 40 }}>
             {rowValue}
           </TableCell>
         ))}
