@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useController } from 'react-hook-form';
 import renderer, { act } from 'react-test-renderer';
 
@@ -12,6 +12,8 @@ import usePersonValidation from '~/components/people/person/page-content/validat
 import usePerson from '~/hooks/people/person';
 import { type Person } from '~/types/person';
 
+let TestComponent: ReactElement;
+
 const mockData: { person: Person; testCb: () => void } = {
   person: allPeopleResponse.results[0],
   testCb: jest.fn(),
@@ -22,7 +24,7 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn(),
 }));
 jest.mock(
-  '~/components/people/person/page-content/validation/usePersonValidation'
+  '~/components/people/person/page-content/validation/usePersonValidation',
 );
 jest.mock('~/hooks/people/person');
 jest.mock('swr', () => ({
@@ -56,14 +58,14 @@ describe('Person page component', () => {
     (useSWRConfig as jest.Mock).mockReturnValue({
       mutate: jest.fn(),
     });
-
+    TestComponent = <PersonPageContent personId={1} />;
     await act(() => {
-      render(<PersonPageContent personId={1} />);
+      render(TestComponent);
     });
   });
 
   it('Renders correctly', () => {
-    const tree = renderer.create(<PersonPageContent personId={1} />).toJSON();
+    const tree = renderer.create(TestComponent).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

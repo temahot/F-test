@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import renderer, { act } from 'react-test-renderer';
 
 import { render, screen } from '@testing-library/react';
@@ -15,6 +15,7 @@ jest.mock('next/router', () => ({
 }));
 
 let peopleResponse: Person[];
+let TestComponent: ReactElement;
 
 describe('Table component', () => {
   beforeEach(async () => {
@@ -25,33 +26,26 @@ describe('Table component', () => {
     }));
 
     (useRouter as jest.Mock).mockReturnValue({ query: {} });
+    TestComponent = (
+      <Table
+        data={peopleResponse}
+        headers={formattedHeaders}
+        isLoading={false}
+      />
+    );
     await act(() => {
-      render(
-        <Table
-          data={peopleResponse}
-          headers={formattedHeaders}
-          isLoading={false}
-        />
-      );
+      render(TestComponent);
     });
   });
 
   it('Renders correctly', () => {
-    const tree = renderer
-      .create(
-        <Table
-          data={peopleResponse}
-          headers={formattedHeaders}
-          isLoading={false}
-        />
-      )
-      .toJSON();
+    const tree = renderer.create(TestComponent).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('Mock data renders in columns', () => {
     const people = peopleResponse.map((person) =>
-      screen.getByText(person.name)
+      screen.getByText(person.name),
     );
 
     people.forEach((item) => {
